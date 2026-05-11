@@ -1,20 +1,78 @@
 # MEIEP Signal Extraction Framework
 
-**Author:** Riam Daou  
-**Status:** Open Source Release  
+**Author:** Riam Daou
+
+**Research Context:** Exploratory Signal-Processing for Levitated Optomechanics
+
+**License:** MIT
 
 ## Overview
-This repository contains the computational framework designed to extract **non-thermal mechanical transients** resulting from macroscopic decoherence. It is built to support the Mass-Energy-Information Equivalence Principle (MEIEP).
 
-While standard quantum biological or optomechanical research models decoherence as a thermodynamic entropy increase, this framework utilizes **Matched Filtering** and **RANSAC-based robust outlier rejection** to computationally isolate the precise temporal phase-shift indicating physical mass release upon quantum collapse.
+This repository provides a computational framework designed for the detection of hypothesized **non-thermal mechanical transients** in high-mass optomechanical systems. While standard data pipelines extensively utilize thermal-averaging to mitigate Brownian noise, this framework proposes a complementary approach using **Matched Filtering** and **RANSAC-based robust outlier rejection** to isolate non-periodic phase-shifts.
 
-## Features
-* **Synthetic Injection Recovery:** Generates thermal Brownian noise models with injected MEIEP transient signatures.
-* **Matched Filter Pipeline:** Cross-correlates raw sensor streams against theoretical high-mass information release templates.
-* **RANSAC Isolation:** Mathematically uncouples standard thermal variance from sudden non-thermal phase-shifts, bypassing the limitations of traditional thermal averaging.
+## Key Methodology
 
-## Quick Start
-Ensure you have `numpy`, `scipy`, `scikit-learn`, and `matplotlib` installed.
+The pipeline operates on the theoretical lower bound of a hypothesized mass-energy transient, established at:
+
+
+$$\Delta M \ge 3.18 \times 10^{-23} \text{ kg}$$
+
+
+
+By treating these potential transients as **structural outliers** rather than environmental noise, this framework allows for exploratory signal recovery without necessitating additional physical cooling of the hardware.
+
+### Features
+
+* 
+**Synthetic Injection Recovery:** Proof-of-concept demonstration using simulated Brownian noise backgrounds.
+
+
+* 
+**Matched Filter Integration:** Cross-correlation of raw sensor data against hypothesized transient templates.
+
+
+* 
+**Robust Outlier Rejection:** Implementation of the RANSAC algorithm to mathematically uncouple sudden perturbations from standard thermal variance.
+
+
+
+## Installation
+
+Ensure you have a Python environment (3.8+) with the following dependencies:
+
 ```bash
 pip install numpy scipy scikit-learn matplotlib
+
+```
+
+## Usage
+
+To run the exploratory signal extraction on a synthetic dataset:
+
+```bash
 python meiep_signal_extraction.py
+
+```
+
+## Scientific Documentation
+
+This computational framework is a companion to the following exploratory research:
+
+* 
+**Paper:** *An Exploratory Signal-Processing Framework for the Detection of Hypothetical Non-Thermal Transients in Levitated Optomechanics*.
+
+
+* 
+**Theory:** Mass-Energy-Information Equivalence Principle (MEIEP).
+
+
+
+## Citation
+
+If you utilize this framework in your research, please cite:
+
+```text
+Daou, R. (2026). MEIEP Signal Extraction Framework. GitHub Repository. 
+https://github.com/RiamOXM/meiep-signal-extraction
+
+```
